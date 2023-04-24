@@ -38,6 +38,13 @@ int _printf(const char *format, ...)
 						i = i + 2;
 						counter += j - 1;
 						break;
+					case '%':
+						write(1, format + i, 1);
+						i = i + 2;
+						counter++;
+						break;
+					case '\0':
+						return (-1);
 					default:
 						write(1, format + i, 1);
 						counter++;
