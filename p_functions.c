@@ -52,3 +52,49 @@ int print_s(va_list print)
 	}
 	return (i);
 }
+
+/**
+ * print_d - prints integers
+ * @print: variadic parameter to print
+ *
+ * Return: number of integers
+ */
+int print_d(va_list print)
+{
+	long int number;
+	int counter, aux_variable, base;
+
+	counter = 0;
+	number = va_arg(print, int);
+
+	if (number < 0)
+	{
+		number *= -1;
+		_putchar(45);
+		counter++;
+	}
+	if (number >= 0 && number <= 9)
+	{
+		_putchar(number + 48);
+		counter++;
+	}
+	if (number > 9)
+	{
+		base = 10;
+
+		while (number / base > 9)
+		{
+			base *= 10;
+		}
+
+		while (base > 0)
+		{
+			aux_variable = number / base;
+			number = number % base;
+			_putchar(aux_variable + 48);
+			base = base / 10;
+			counter++;
+		}
+	}
+	return (counter);
+}

@@ -59,6 +59,8 @@ int (*cmp_format(const char a))(va_list)
 	spec all[] = {
 	{'c', print_c},
 	{'s', print_s},
+	{'i', print_d},
+	{'d', print_d},
 	{'\0', NULL}
 	};
 	int k;
