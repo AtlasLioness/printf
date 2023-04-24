@@ -45,7 +45,7 @@ int print_s(va_list print)
 	}
 	else
 	{
-		for (i = 0, str[i] != '\0'; i++)
+		for (i = 0; str[i] != '\0'; i++)
 		{
 			_putchar(str[i]);
 		}

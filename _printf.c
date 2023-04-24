@@ -24,7 +24,7 @@ int _printf(const char *format, ...)
 				return (-1);
 			else if (format[i + 1] == '%')
 			{
-				print_c('%');
+				_putchar('%');
 				i++;
 				counter++;
 			}
@@ -35,13 +35,13 @@ int _printf(const char *format, ...)
 			}
 			else
 			{
-				print_c(format[i]);
+				_putchar(format[i]);
 				counter++;
 			}
 		}
 		else
 		{
-			print_c(format[i]);
+			_putchar(format[i]);
 			counter++;
 		}
 	}
@@ -63,7 +63,7 @@ int (*cmp_format(const char a))(va_list)
 	};
 	int k;
 
-	for (k = 0, all[k].p != '\0', k++)
+	for (k = 0; all[k].p != '\0'; k++)
 	{
 		if (all[k].p == a)
 			return (all[k].fun);
