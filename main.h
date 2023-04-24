@@ -18,6 +18,7 @@ typedef struct typep
 int _putchar(char c);
 int print_c(va_list print);
 int print_s(va_list print);
+int print_d(va_list print);
 int (*cmp_format(const char a))(va_list);
 
 #endif /* _MAIN_H */
