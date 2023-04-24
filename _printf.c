@@ -43,8 +43,6 @@ int _printf(const char *format, ...)
 						i = i + 2;
 						counter++;
 						break;
-					case '\0':
-						return (-1);
 					default:
 						write(1, format + i, 1);
 						counter++;
