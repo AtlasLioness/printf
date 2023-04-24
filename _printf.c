@@ -1,67 +1,72 @@
-#include <unistd.h>
+#include "main.h"
 #include <stdarg.h>
 /**
- * _printf - function that produces output according to a format
- * @format: character string
+ *_printf - function that produces output according to a format.
+ * @format: format of parameter to print
  *
- * Return: the number of characters printed
+ * Return: number of elements printed or -1 if failure
  */
 int _printf(const char *format, ...)
 {
 	va_list print;
-	int i = 0, j, counter = 0;
-	char arg, *str;
+	int i, len, counter = 0;
 
 	if (format == NULL)
 		return (-1);
+
 	va_start(print, format);
-	if (format)
+
+	for (i = 0; format && format[i] != '\0'; i++)
 	{
-		while (format[i] != '\0')
+		if (format[i] == '%')
 		{
-			if (format[i] == '%')
+			if (format[i + 1] == '\0')
+				return (-1);
+			else if (format[i + 1] == '%')
 			{
-				if (format[i + 1] == '\0')
-				{
-					return (-1);
-				}
-				switch (format[i + 1])
-				{
-					case 'c':
-						arg = va_arg(print, int);
-						write(1, &arg, 1);
-						i = (i + 1) + 1;
-						counter++;
-						break;
-					case 's':
-						j = 0;
-						str = va_arg(print, char*);
-						while (str[j] != '\0')
-							j++;
-						write(1, str, j);
-						i = i + 2;
-						counter += j - 1;
-						break;
-					case '%':
-						write(1, format + i, 1);
-						i = i + 2;
-						counter++;
-						break;
-					default:
-						write(1, format + i, 1);
-						counter++;
-						i++;
-						break;
-				}
+				print_c('%');
+				i++;
+				counter++;
+			}
+			else if (cmp_format(format[i + 1]) != NULL)
+			{
+				counter += (cmp_format(format[i + 1]))(print);
+				i++;
 			}
 			else
 			{
-				write(1, format + i, 1);
+				print_c(format[i]);
 				counter++;
-				i++;
 			}
+		}
+		else
+		{
+			print_c(format[i]);
+			counter++;
 		}
 	}
 	va_end(print);
 	return (counter);
+}
+/**
+ * cmp_format - entry point
+ * @a: character
+ *
+ * Return: 0
+ */
+int (*cmp_format(const char a))(va_list)
+{
+	spec all[] = {
+	{'c', print_c},
+	{'s', print_s},
+	{'\0', NULL}
+	};
+	int k;
+
+	for (k = 0, all[k].p != '\0', k++)
+	{
+		if (all[k].p == a)
+			return (all[k].fun);
+	}
+	return (0);
 }
