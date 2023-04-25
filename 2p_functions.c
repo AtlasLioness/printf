@@ -9,10 +9,10 @@
 int print_u(va_list print)
 {
 	long int number;
-	int counter, aux_variable, base;
+	long int counter, aux_variable, base;
 
 	counter = 0;
-	number = va_arg(print, int);
+	number = va_arg(print, long int);
 
 	if (number < 0)
 	{
