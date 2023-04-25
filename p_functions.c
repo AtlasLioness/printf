@@ -107,16 +107,18 @@ int print_d(va_list print)
  */
 int print_b(va_list print)
 {
-	unsigned int number;
+	unsigned int number, b = 0, base = 1, rest;
 	int counter = 0;
 
 	number = va_arg(print, unsigned int);
-	fct_rec(number);
-	while (number / 2 > 0)
+	while (number != 0)
 	{
-		counter++;
+		rest = number % 2;
 		number = number / 2;
+		b = b + rest * base;
+		base = base * 10;
+		counter++;
 	}
-	counter++;
+	_printf("%d", b);
 	return (counter);
 }
