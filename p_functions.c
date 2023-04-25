@@ -1,6 +1,6 @@
-#include <unistd.h>
-#include <stdarg.h>
 #include "main.h"
+#include <stdarg.h>
+#include <unistd.h>
 /**
  * _putchar - prints a character
  * @c: char to print
