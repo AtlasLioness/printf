@@ -1,5 +1,4 @@
 #include "main.h"
-#include <unistd.h>
 /**
  * fct_rec - convert to binary
  * @a: deciaml to convert
@@ -14,6 +13,6 @@ void fct_rec(unsigned int a)
     {
         reste = a % 2;
         fct_rec(a / 2);
-        write(1, &reste, 1);
+        _putchar(reste + '0');
     }
 }
