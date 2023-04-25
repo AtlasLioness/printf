@@ -3,7 +3,7 @@
 #include "main.h"
 /**
  * _putchar - prints a character
- * @i: char to print
+ * @c: char to print
  *
  * Return: 1 success, -1 error
  */
@@ -107,37 +107,15 @@ int print_d(va_list print)
  */
 int print_b(va_list print)
 {
-	unsigned int number, b = 0, base = 1, rest;
-	int aux_variable, counter = 0;
+	long int number;
+	int counter = 0;
 
-	number = va_arg(print, unsigned int);
-	while (number != 0)
+	number = va_arg(print, int);
+	fct_rec(number);
+	while (number / 2 > 0)
 	{
-		rest = number % 2;
-		number = number / 2;
-		b = b + rest * base;
-		base = base * 10;
 		counter++;
+		number = number / 2;
 	}
-	if (b <= 9)
-	{
-	       	_putchar(b + 48);
-	}
-	if (b > 9)
-	{
-		base = 10;
-		
-		while (b / base > 9)
-		{
-			base *= 10;
-		}
-		while (base > 0)
-		{
-			aux_variable = b / base;
-			b = b % base;
-			_putchar(aux_variable + 48);
-			base = base / 10;
-		}
-	}
-	return (counter);
+	return (counter++);
 }
