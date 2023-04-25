@@ -114,8 +114,9 @@ int print_b(va_list print)
 	fct_rec(number);
 	while (number / 2 > 0)
 	{
-		counter++;
 		number = number / 2;
+		counter++;
 	}
-	return (counter++);
+	counter++;
+	return (counter);
 }
