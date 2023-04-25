@@ -111,6 +111,11 @@ int print_b(va_list print)
 	int counter = 0;
 
 	number = va_arg(print, unsigned int);
+	if (number == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
 	fct_rec(number);
 	while (number > 0)
 	{
