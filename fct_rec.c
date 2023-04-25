@@ -1,3 +1,4 @@
+#include "main.h"
 /**
  * fct_rec - convert to binary
  * @a: deciaml to convert
