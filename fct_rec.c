@@ -16,3 +16,20 @@ void fct_rec(unsigned int a)
         _putchar(reste + '0');
     }
 }
+/**
+ * fct_rec_O - convert to octal
+ * @a: deciaml to convert
+ *
+ * Return: none
+ */
+void fct_rec_O(unsigned int a)
+{
+	int reste;
+	
+       	if(a > 0)
+	{
+		reste = a % 8;
+		fct_rec_O(a / 8);
+		_putchar(reste + '0');
+	}
+}

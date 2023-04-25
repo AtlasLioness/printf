@@ -43,3 +43,28 @@ int print_u(va_list print)
 	}
 	return (counter);
 }
+/**
+ * print_o - prints integers in octal
+ * @print: variadic parameter to print
+ *
+ * Return: number of integers
+ */
+int print_o(va_list print)
+{
+        unsigned int number;
+        int counter = 0;
+
+        number = va_arg(print, unsigned int);
+        if (number == 0)
+        {
+                _putchar('0');
+                return (1);
+        }
+        fct_rec_O(number);
+        while (number > 0)
+        {
+                number = number / 8;
+                counter++;
+        }
+        return (counter);
+}

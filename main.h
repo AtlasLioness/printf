@@ -21,6 +21,7 @@ int print_s(va_list print);
 int print_d(va_list print);
 int print_b(va_list print);
 void fct_rec(unsigned int a);
+void fct_rec_O(unsigned int a);
 int (*cmp_format(const char a))(va_list);
 int print_u(va_list print);
 int print_o(va_list print);
