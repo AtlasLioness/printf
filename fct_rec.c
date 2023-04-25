@@ -9,7 +9,7 @@ void fct_rec(unsigned int a)
 {
     unsigned int reste;
 
-    if(a != 0)
+    if(a > 0)
     {
         reste = a % 2;
         fct_rec(a / 2);
