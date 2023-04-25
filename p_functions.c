@@ -112,10 +112,11 @@ int print_b(va_list print)
 
 	number = va_arg(print, unsigned int);
 	fct_rec(number);
-	while (number > 0)
+	while (number / 2 > 0)
 	{
 		number = number / 2;
 		counter++;
 	}
+	counter++;
 	return (counter);
 }
