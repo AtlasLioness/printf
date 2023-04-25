@@ -107,10 +107,10 @@ int print_d(va_list print)
  */
 int print_b(va_list print)
 {
-	long int number;
+	unsigned int number;
 	int counter = 0;
 
-	number = va_arg(print, int);
+	number = va_arg(print, unsigned int);
 	fct_rec(number);
 	while (number > 0)
 	{
