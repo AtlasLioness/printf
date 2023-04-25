@@ -117,5 +117,6 @@ int print_b(va_list print)
 		counter++;
 		number = number / 2;
 	}
-	return (counter++);
+	counter++;
+	return (counter);
 }
