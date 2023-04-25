@@ -7,7 +7,7 @@
  */
 void fct_rec(unsigned int a)
 {
-    unsigned int reste;
+    int reste;
 
     if(a > 0)
     {
