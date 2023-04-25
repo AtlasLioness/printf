@@ -5,9 +5,9 @@
  *
  * Return: none
  */
-void fct_rec(long int a)
+void fct_rec(unsigned int a)
 {
-    long int reste;
+    unsigned int reste;
 
     if(a > 0)
     {
