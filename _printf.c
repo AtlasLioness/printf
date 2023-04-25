@@ -61,6 +61,7 @@ int (*cmp_format(const char a))(va_list)
 	{'s', print_s},
 	{'i', print_d},
 	{'d', print_d},
+	{'b', print_b},
 	{'\0', NULL}
 	};
 	int k;

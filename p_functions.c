@@ -98,3 +98,24 @@ int print_d(va_list print)
 	}
 	return (counter);
 }
+
+/**
+ * print_b - prints integers in binary
+ * @print: variadic parameter to print
+ *
+ * Return: number of integers
+ */
+int print_b(va_list print)
+{
+	long int number;
+	int counter = 0;
+
+	number = va_arg(print, int);
+	fct_rec(number);
+	while (number / 2 > 0)
+	{
+		counter++;
+		number = number / 2;
+	}
+	return (counter++);
+}

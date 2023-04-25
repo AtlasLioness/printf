@@ -19,6 +19,8 @@ int _putchar(char c);
 int print_c(va_list print);
 int print_s(va_list print);
 int print_d(va_list print);
+int print_b(va_list print);
+void fct_rec(long int a);
 int (*cmp_format(const char a))(va_list);
 
 #endif /* _MAIN_H */
