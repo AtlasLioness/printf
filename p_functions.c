@@ -112,9 +112,9 @@ int print_b(va_list print)
 
 	number = va_arg(print, int);
 	fct_rec(number);
-	while (number / 2 > 0)
+	while (number / 10 > 0)
 	{
-		number = number / 2;
+		number = number / 10;
 		counter++;
 	}
 	counter++;
